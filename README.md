@@ -24,7 +24,7 @@
 ### 使用 PowerShell 腳本 (推薦)
 在專案根目錄執行：
 ```powershell
-\.\compile.ps1
+.\compile.ps1
 ```
 
 ### 手動編譯
@@ -40,13 +40,13 @@ g++ -o minilisp.exe interpreter.cpp parser.tab.c lex.yy.c -std=c++11
 
 ### 正確用法
 ```powershell
-\.\minilisp.exe public_test_data\02_1.lsp
+.\minilisp.exe public_test_data\02_1.lsp
 ```
 
 ### 錯誤用法 (會導致 RedirectionNotSupported 錯誤)
 ```powershell
 # 請勿使用這種方式
-\.\minilisp.exe < public_test_data\02_1.lsp
+.\minilisp.exe < public_test_data\02_1.lsp
 ```
 
 ## 測試指令
@@ -54,5 +54,22 @@ g++ -o minilisp.exe interpreter.cpp parser.tab.c lex.yy.c -std=c++11
 您可以直接執行 `run_tests.ps1` 腳本來一次跑完所有測試資料：
 
 ```powershell
-\.\run_tests.ps1
+.\run_tests.ps1
 ```
+
+## 程式碼結構說明
+
+本專案由以下核心檔案組成：
+
+*   **`ast.h` (Abstract Syntax Tree Header)**
+    *   定義抽象語法樹 (AST) 的節點結構 (如 `NumberNode`, `IfNode`, `FunNode` 等)。
+    *   定義 `Value` (數值/布林/函式型別) 與 `Environment` (變數 Scope 管理)。
+*   **`scanner.l` (Lexical Analyzer)**
+    *   使用 Flex 撰寫。負責將輸入的字串切割成 Token (如 `LPAREN`, `NUMBER`, `PLUS`)。
+*   **`parser.y` (Syntax Analyzer)**
+    *   使用 Bison 撰寫。定義文法規則 (Grammar)，並將 Token 組合成 AST。
+*   **`interpreter.cpp` (Interpreter Core)**
+    *   實作 AST 節點的 `eval()` 運算邏輯。
+    *   包含型別檢查 (Type Checking) 與主程式進入點 (Main Function)。
+*   **`compile.ps1`**: 自動化編譯腳本 (PowerShell)。
+*   **`run_tests.ps1`**: 自動化測試腳本，執行所有公開測資。
