@@ -1,0 +1,21 @@
+# Executables and Objects
+*.exe
+*.o
+*.obj
+
+# Flex and Bison Generated Files
+lex.yy.c
+parser.tab.c
+parser.tab.h
+parser.output
+
+# Logs and Temporary Files
+*.log
+tmp/
+demo_*.lsp
+
+# OS and Editor Configs
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
