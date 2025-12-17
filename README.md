@@ -5,7 +5,6 @@
 ## 特色 (Features)
 
 *   **零依賴 (Zero Dependency)**: 僅使用 Python 標準庫 (`sys`, `re`, `math`)，無需安裝任何外部套件。
-*   **極致精簡 (Minimalist)**: 核心程式碼約 160 行，邏輯清晰，易於閱讀與維護。
 *   **完整功能 (Full Compliance)**: 支援 PDF 規格中的所有 **Basic Features** 與 **Bonus Features**。
 *   **精確錯誤報告 (Precise Error Reporting)**: 區分語法錯誤 (Syntax Error) 與執行期錯誤 (Runtime Error)，並提供詳細的錯誤原因。
 
